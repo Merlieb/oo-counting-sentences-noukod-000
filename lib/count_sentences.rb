@@ -15,7 +15,9 @@ class String
   end
 
   def count_sentences
-    self.split(".").count
+    self.split(/\.|!|\?/).map {|sentence|
+      sentence if sentence.size >0
+    }.compact.count
   end
 end
 binding.pry
